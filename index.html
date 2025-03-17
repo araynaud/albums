@@ -109,7 +109,7 @@
 		display: inline-block;
 		vertical-align: top;
 	}
-	
+
 	.print-only { display: none; }
 }
 	.column.column-2 {
@@ -179,7 +179,7 @@
 	<div class="separator-template">
 		<hr/>
 	</div>
-	
+
 	<div class="image-template">
 		<a class="url"><img class="artwork"/></a>
 	</div>
@@ -211,80 +211,80 @@
 
 var items = [
 	{ title: "Collaborative Albums" },
-    {
+	{
 		url: "./demondetournement",
-        title: "GORILLAZ - Demon Detournement",
+		title: "GORILLAZ - Demon Detournement",
 		description: "Gorillaz - Demon Days | 20th anniversary mashups",
 		artists: "Steff St. Moore / Minor Arth / DoM",
-        image: "./demondetournement/DemonDetournement.jpg",
+		image: "./demondetournement/DemonDetournement.jpg",
 		release: "March 2025",
 		nbTracks: 27
-    },
+	},
 	{
 		url: "https://audioboots.org/Albums/AcousticUnplugged",
-        title: "AudioBoots Acoustic Unplugged",
+		title: "AudioBoots Acoustic Unplugged",
 		description: "25 acoustic / unplugged mashups by 9 producers",
 		artists: "Minor Arth / DJ Useo / Chocomang & more... ",
-        image: "https://audioboots.org/Albums/AcousticUnplugged/assets/AudioBoots Unplugged.jpg",
+		image: "https://audioboots.org/Albums/AcousticUnplugged/assets/AudioBoots Unplugged.jpg",
 		release: "June 2023",
 		nbTracks: 25
-    },
-    {
+	},
+	{
 		url: "https://remix.audio/playlist/2449",
-        title: "Kavinksy Mode EP",
+		title: "Kavinksy Mode EP",
 		description: "KAVINSKY / DEPECHE MODE mashups",
 		artists: "Minor Arth / Instamatic",
-        image: "https://remix.audio/uploads/media/640919013_785528246_1950469825.jpg",
+		image: "https://remix.audio/uploads/media/640919013_785528246_1950469825.jpg",
 		release: "November 2023",
 		nbTracks: 4
-    },
+	},
 	{ title: "Solo Albums" },
-    {
+	{
 		url: "./mashmaker3",
-        title: "The Mashmaker, volume 3",
+		title: "The Mashmaker, volume 3",
 		description: "Best of 2023 - 2024",
-        image: "./mashmaker3/Mashmaker3.jpg",
+		image: "./mashmaker3/Mashmaker3.jpg",
 		release: "December 2024",
 		nbTracks: 18
-    },
-    {
+	},
+	{
 		url: "./dmvolume1",
-        title: "Some Great Music For The Mashes",
+		title: "Some Great Music For The Mashes",
 		description: "DEPECHE MODE mashups volume 1",
-        image: "./dmvolume1/dmmashups-volume1.jpg",
+		image: "./dmvolume1/dmmashups-volume1.jpg",
 		release: "June 2024",
 		nbTracks: 22
-    },
-    {
+	},
+	{
 		url: "./kraftmode",
-        title: "Kraft Mode EP",
+		title: "Kraft Mode EP",
 		description: "KRAFTWERK / DEPECHE MODE mashups",
-        image: "https://remix.audio/uploads/media/31169987_570877271_795201279.jpg",
+		image: "https://remix.audio/uploads/media/31169987_570877271_795201279.jpg",
 		release: "April 2024",
 		nbTracks: 4
-    },
-    {
+	},
+	{
 		url: "./mashmaker2",
-        title: "The Mashmaker, volume 2",
+		title: "The Mashmaker, volume 2",
 		description: "Best of 2022 - 2023",
-        image: "./mashmaker2/Mashmaker2.jpg",
+		image: "./mashmaker2/Mashmaker2.jpg",
 		release: "January 2024",
 		nbTracks: 18
-    },
-    {
+	},
+	{
 		url: "./mashmaker1",
-        title: "The Mashmaker, volume 1",
+		title: "The Mashmaker, volume 1",
 		description: "Best of 2019 - 2022",
-        image: "./mashmaker1/Mashmaker1.jpg",
+		image: "./mashmaker1/Mashmaker1.jpg",
 		release: "April 2023",
 		nbTracks: 16
-    },
+	},
 	{ title: "Friends' Albums" },
 	{
-		
+
 		url: "./ziggystardub",
 		artists: "DoM",
-        title: "DAVID BOWIE / EASY STAR ALL-STARS - The Rise And Fall Of Ziggy Stardub",
+		title: "DAVID BOWIE / EASY STAR ALL-STARS - The Rise And Fall Of Ziggy Stardub",
 		description: "Ziggy Stardust | Reggae versions",
 		image: "https://remix.audio/uploads/media/60294312_942039511_1511504134.png",
 		release: "April 2023",
@@ -483,7 +483,7 @@ function displayPlaylistItem(item, i) {
 	if(!item.n) item.n = i + 1;
 
 	el = cloneTemplate( item.nbTracks ? template : categoryTemplate, repeater);
-	
+
 	if(el.querySelector(".number"))
 		el.querySelector(".number").innerHTML = item.n;
 	// el.onclick = () => playFile(i);
@@ -498,7 +498,7 @@ function displayPlaylistItem(item, i) {
 	if(description) description.innerHTML = itemDescription;
 
 	var as = el.querySelectorAll("a.url");
-	if(as && item.url) as.forEach(l => l.href = item.url); 
+	if(as && item.url) as.forEach(l => l.href = item.url);
 
 	var img = el.querySelector("img.artwork");
 	if(img && item.image) {

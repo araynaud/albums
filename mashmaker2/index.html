@@ -54,7 +54,7 @@
 		border: 1px solid #CCC;
 		padding: 2px;
 		margin-left: auto;
-		margin-right: auto;	
+		margin-right: auto;
 	}
 
 	div.playlist-template div.item-text {
@@ -62,7 +62,7 @@
 		display: inline-block;
 	}
 
-	div.playlist-template img[src] { 
+	div.playlist-template img[src] {
 		height: .7in;
 		vertical-align: middle;
 	}
@@ -86,7 +86,7 @@
 	div.image-template img[src] {
 		width: 100%;
 		max-width: 900px;
-		border: solid 10px white; 
+		border: solid 10px white;
 	}
 
 	div.tile-template img[src] {
@@ -139,7 +139,7 @@
 	</style>
 </head>
 <body>
-	
+
 	<h1><a target="download" class="album-title album-link"></a></h1>
 	<h2 id="playlist-links"></h2>
 
@@ -568,7 +568,7 @@ function makePlaylistItem(item, i) {
 	item.image = item.title + ".jpg";
 	item.file = item.title + AUDIO_TYPE;
 	item.sources = lines;
-		
+
 	var dot = item.title.indexOf(" - ");
 	var n = Number(item.title.substring(0, dot));
 	if(n && !isNaN(n)) {
@@ -580,7 +580,7 @@ function makePlaylistItem(item, i) {
 	item.songTitle = parts.pop();
 	if(!ALBUM_ARTIST) item.producer = parts.shift();
 	item.artists = parts.join(" / ");
-	
+
 	if(!item.artists && item.songTitle.includes("(")) {
 		var par = item.songTitle.lastIndexOf("(");
 		item.artists = item.songTitle.substring(par+1);
@@ -588,11 +588,11 @@ function makePlaylistItem(item, i) {
 		var par = item.artists.lastIndexOf(")");
 		item.artists = item.artists.substring(0,par);
 	}
-	
+
 	return item;
 }
 
-function displayPlaylistItem(item, i) { 
+function displayPlaylistItem(item, i) {
 	el = cloneTemplate(template, repeater);
 	if(!item.n) item.n = i + 1;
 	if(el.querySelector(".number"))
@@ -613,8 +613,8 @@ function displayPlaylistItem(item, i) {
 
 	if(item.sources && el.querySelector(".sources"))
 		item.sources.forEach( (s, j) =>	el.querySelector(".sources").innerHTML += isUrl(s)? '\n<a onclick="stopPropagation(event)" target="video" href="' + s + '">VIDEO</a>' : (j ? "\n+ " : "= ") + s);
-		
-		
+
+
 	if(item.video && title)
 		title.innerHTML += '\n<a onclick="stopPropagation(event)" target="video" href="' + item.video + '">VIDEO</a>';
 

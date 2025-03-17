@@ -9,7 +9,7 @@
 	<meta property="og:image:height" content="720">
 	<meta property="og:image:type" content="image/jpeg">
 
-	
+
 	<style>
 	@media screen {
 		body{
@@ -29,7 +29,7 @@
 
 	a, .bold { font-weight: bold; cursor: pointer; }
 
-	body { 
+	body {
 		font-family:  Helvetica, sans-serif, 'Tw Cen MT', 'HP Simplified', Arial;
 		text-align: center;
 	}
@@ -54,26 +54,26 @@
 		border: 1px solid #CCC;
 		padding: 2px;
 		margin-left: auto;
-		margin-right: auto;	
+		margin-right: auto;
 	}
 
-	div.playlist-template div.item-text { 
-		vertical-align: middle;	
-		display: inline-block; 		
-	}
-
-	div.playlist-template img[src] { 
-		height: .7in; 
-		vertical-align: middle;	
-	}
-			
-	div.tile-template, div.image-template, div.small-image-template { 
+	div.playlist-template div.item-text {
+		vertical-align: middle;
 		display: inline-block;
-		vertical-align: top;				
+	}
+
+	div.playlist-template img[src] {
+		height: .7in;
+		vertical-align: middle;
+	}
+
+	div.tile-template, div.image-template, div.small-image-template {
+		display: inline-block;
+		vertical-align: top;
 		cursor: pointer;
 	}
 
-	div.tile-template { 
+	div.tile-template {
 		width: 4in;
 		padding: .25in;
 	}
@@ -83,15 +83,15 @@
 		margin: 20px;
 	}
 
-	div.image-template img[src] { 
+	div.image-template img[src] {
 		width: 100%;
 		max-width: 900px;
-		border: solid 4px white; 
+		border: solid 4px white;
 	}
-	
-	div.tile-template img[src] { 
+
+	div.tile-template img[src] {
 		width: 3in;
-		border: solid 4px white; 
+		border: solid 4px white;
 	}
 
 	div.small-image-template img[src] {
@@ -120,15 +120,15 @@
 	}
 
 	.pre {
-		white-space: pre-line; 
+		white-space: pre-line;
 	}
 
-	p { 
-		white-space: pre-line; 
+	p {
+		white-space: pre-line;
 		margin-block-start: .5em;
 		margin-block-end: 0em;
 	}
-			
+
 	a { text-decoration: none; }
 	a.logo img { height: 90px; padding-top: 10px; display: inline-block;	}
 	.hidden { display: none; }
@@ -153,7 +153,7 @@
 	<div class="bold player-label"></div>
 	<br/>
 	<div class="align-left">
-		Show: 
+		Show:
 		<select id="view-mode" onchange="refreshList()">
 			<option value="playlist-template.details">playlist with details</option>
 			<option value="playlist-template">playlist</option>
@@ -253,7 +253,7 @@ var links = {
 	"The Mashmaker, volume 1": "http://minorart.free.fr/mashup/mashmaker1",
 	"The Mashmaker, volume 2": "http://minorart.free.fr/mashup/mashmaker2",
 	"Facebook": "https://www.facebook.com/MinorArthMashups",
-	"remix.audio": "https://remix.audio/playlist/2733", 
+	"remix.audio": "https://remix.audio/playlist/2733",
 	"YouTube": "https://www.youtube.com/@MinorArth",
 	"AudioBoots": "https://audioboots.org"
 };
@@ -270,7 +270,7 @@ var items = [
 			"The Stranglers - The European Female | 1982",
 		],
 		video: "https://youtu.be/pz83tO_aTyM",
-		image: "31169987_570877271_795201279.jpg"		
+		image: "31169987_570877271_795201279.jpg"
 	},
 	{
 		id: 19401,
@@ -312,7 +312,7 @@ var items = [
 PLAYER_IMAGE = items[0].image;
 
 document.title = ALBUM_TITLE;
-albumTitle.innerText = ALBUM_ARTIST ? ALBUM_ARTIST + " - " + ALBUM_TITLE : ALBUM_TITLE; 
+albumTitle.innerText = ALBUM_ARTIST ? ALBUM_ARTIST + " - " + ALBUM_TITLE : ALBUM_TITLE;
 albumLinks.forEach(a => a.href = ALBUM_LINK);
 
 logoImages.forEach(i => setImage(i, LOGO_IMAGE));
@@ -454,7 +454,7 @@ function makePlaylistItem(item, i) {
 	item.image = item.title + ".jpg";
 	item.file = item.title + AUDIO_TYPE;
 	item.sources = lines;
-		
+
 	var n = Number(substringBefore(item.title, " - "));
 	if(n && !isNaN(n)) {
 		item.n = n;
@@ -465,17 +465,17 @@ function makePlaylistItem(item, i) {
 	item.songTitle = parts.pop();
 	if(!ALBUM_ARTIST) item.producer = parts.shift();
 	item.artists = parts.join(" / ");
-	
+
 	if(!item.artists && item.songTitle.includes("(")) {
 		item.artists = substringAfter(item.songTitle, "(", true);
 		item.songTitle = item.songTitle.substring(0, par);
 		item.artists = substringBefore(item.songTitle, ")", true);
 	}
-	
+
 	return item;
 }
 
-function displayPlaylistItem(item, i) { 
+function displayPlaylistItem(item, i) {
 	el = cloneTemplate(template, repeater);
 	if(!item.n) item.n = i + 1;
 	if(el.querySelector(".number"))
@@ -499,8 +499,8 @@ function displayPlaylistItem(item, i) {
 
 	if(item.sources && el.querySelector(".sources"))
 		item.sources.forEach( (s, j) => el.querySelector(".sources").innerHTML += isUrl(s)? "" : (j ? "\n+ " : "= ") + s );
-		
-		
+
+
 	if(item.video && title)
 		title.innerHTML += '\n<a onclick="stopPropagation(event)" target="video" href="' + item.video + '">VIDEO</a>';
 
