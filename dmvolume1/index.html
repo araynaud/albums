@@ -164,7 +164,7 @@
 	<a class="logo"><img /></a><br/>
 	<a target="download" class="album-link">DOWNLOAD ALBUM</a>
 	<br/><br/>
-	<img class="player-image" src="./MinorArth-DMMashups-volume1.jpg"/>
+	<img class="player-image" src="./dmmashups-volume1.jpg"/>
 	<br/>
 	<br/>
 	<button onclick="playPrevious()" title="Previous track"> &lt;&lt; </button>
@@ -249,7 +249,7 @@ const IMAGE_PATH = "https://remix.audio/uploads/media/";
 //const IMAGE_PATH = "./artwork/";
 const AUDIO_TYPE = ".mp3";
 const IMAGE_TYPE = ".jpg";
-var PLAYER_IMAGE = "./MinorArth-DMMashups-volume1.jpg";
+var PLAYER_IMAGE = "./dmmashups-volume1.jpg";
 
 const isUrl = s => s && s.includes && s.includes("://");
 
@@ -691,7 +691,7 @@ function displayLinks(container)
 			var link = cloneTemplate(linkTemplate, container);
 			link.innerText = key;
 			link.href = links[key];
-			link.target = "link";
+			//link.target = "link";
 		}
 }
 
